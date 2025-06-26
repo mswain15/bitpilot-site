@@ -20,24 +20,35 @@
       position: relative;
     }
 
-    header {
-      text-align: center;
-      position: relative;
-      padding-top: 2rem;
-    }
-
+    /* Logo top-left */
     .logo {
-      width: 220px;
-      max-width: 80%;
-      animation: swipeRight 1.2s ease-out forwards;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 160px;
+      animation: swipeRight 1s ease-out forwards;
     }
 
-    .telegram {
-      width: 90px;
+    /* Telegram top-right */
+    .telegram-wrapper {
       position: absolute;
       top: 20px;
       right: 20px;
-      animation: swipeBottom 1.4s ease-out forwards;
+      text-align: center;
+      animation: dropDown 1s ease-out forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .telegram-wrapper img {
+      width: 70px;
+    }
+
+    .telegram-wrapper p {
+      margin-top: 5px;
+      font-size: 0.85rem;
+      color: #ccc;
     }
 
     @keyframes swipeRight {
@@ -45,20 +56,34 @@
       to { transform: translateX(0); opacity: 1; }
     }
 
-    @keyframes swipeBottom {
-      from { transform: translateY(-200px); opacity: 0; }
+    @keyframes dropDown {
+      from { transform: translateY(-50px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
 
+    header {
+      text-align: center;
+      padding-top: 100px;
+      margin-bottom: 2rem;
+    }
+
     .tagline {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: bold;
-      margin-top: 1.2rem;
+    }
+
+    .tagline .bit {
+      color: #ffffff;
+    }
+
+    .tagline .pilot {
+      color: #FFD700;
     }
 
     .subtitle {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: #ccc;
+      margin-top: 0.5rem;
       margin-bottom: 3rem;
     }
 
@@ -67,22 +92,25 @@
       justify-content: center;
       gap: 3rem;
       margin-bottom: 3rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .feature-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      width: 160px;
     }
 
     .feature-icon img {
       width: 80px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
 
     .feature-icon span {
       font-size: 1.1rem;
       font-weight: 600;
+      color: #ffffff;
     }
 
     .ticks {
@@ -119,8 +147,13 @@
     }
 
     @media (max-width: 768px) {
-      .telegram {
-        width: 70px;
+      .logo {
+        width: 120px;
+        top: 15px;
+        left: 15px;
+      }
+
+      .telegram-wrapper {
         top: 15px;
         right: 15px;
       }
@@ -133,6 +166,11 @@
         font-size: 1.2rem;
       }
 
+      .features {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
       .tick {
         font-size: 1rem;
       }
@@ -141,13 +179,24 @@
 </head>
 <body>
   <div class="container">
+    <!-- Logo (top-left) -->
+    <img src="IMG_2583.JPG" alt="BitPilot Logo" class="logo"/>
+
+    <!-- Telegram icon (top-right) -->
+    <div class="telegram-wrapper">
+      <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram"/>
+      <p>Contact us</p>
+    </div>
+
+    <!-- Header text -->
     <header>
-      <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram" class="telegram"/>
-      <img src="IMG_2583.JPG" alt="BitPilot Logo" class="logo"/>
-      <h1 class="tagline">BitPilot</h1>
+      <h1 class="tagline">
+        <span class="bit">Bit</span><span class="pilot">Pilot</span>
+      </h1>
       <div class="subtitle">Crypto on Auto-Pilot</div>
     </header>
 
+    <!-- Feature icons -->
     <section class="features">
       <div class="feature-icon">
         <img src="voegko.png" alt="Smart Gains"/>
@@ -159,6 +208,7 @@
       </div>
     </section>
 
+    <!-- Tick section -->
     <section class="ticks">
       <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>Crypto for the rest of us — no hype, no charts, no complexity.</span></div>
       <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>Try before you buy – simulate trades with fake money.</span></div>
@@ -168,6 +218,7 @@
       <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>No charts. No jargon. Just smart investing. We protect your investment.</span></div>
     </section>
 
+    <!-- Image of happy user -->
     <div class="hero-image">
       <img src="pphfd.png" alt="Happy Bitcoin User"/>
     </div>
