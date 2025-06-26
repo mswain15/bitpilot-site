@@ -1,81 +1,159 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YieldPilot – Crypto on Auto-Pilot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BitPilot</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0d0f14;
-      color: #ffffff;
-      text-align: center;
+      background: #0e0e0e;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
       padding: 2rem;
     }
-    .container {
-      max-width: 700px;
-      margin: auto;
+
+    header {
+      text-align: center;
+      padding-top: 3rem;
     }
+
     .logo {
-      width: 160px;
-      margin-bottom: 1.5rem;
+      width: 180px;
+      animation: swipeRight 1.2s ease-out forwards;
     }
-    h1 {
-      font-size: 2.2rem;
-      color: #f4c056;
-      margin-bottom: 0.5rem;
+
+    .telegram {
+      width: 180px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      animation: swipeBottom 1.4s ease-out forwards;
     }
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #ccc;
-      margin-bottom: 2rem;
+
+    @keyframes swipeRight {
+      from { transform: translateX(-200px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
+
+    @keyframes swipeBottom {
+      from { transform: translateY(-200px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
     .tagline {
-      font-size: 1rem;
-      color: #aaa;
-      margin-top: 0.5rem;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
     }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: #ccc;
+      margin-bottom: 3rem;
+    }
+
     .features {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-icon {
+      text-align: center;
+      width: 160px;
+    }
+
+    .feature-icon img {
+      width: 80px;
+      margin-bottom: 1rem;
+    }
+
+    .feature-icon span {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .ticks {
       margin-top: 2rem;
-      text-align: left;
-      line-height: 1.7;
     }
-    .features strong {
-      color: #f4c056;
+
+    .tick {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease forwards;
     }
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #666;
+
+    .tick img {
+      width: 28px;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-image {
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    @media (max-width: 768px) {
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img class="logo" src="IMG_2583.JPG" alt="BitPilot Logo" />
-    <h1>BitPilot</h1>
-    <h2>Crypto on Auto-Pilot</h2>
-    <p class="tagline">* Smart Gains * Managed Risk *</p>
+    <header>
+      <img src="IMG_2583.JPG" alt="BitPilot Logo" class="logo"/>
+      <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram" class="telegram"/>
+      <h1 class="tagline">BitPilot</h1>
+      <div class="subtitle">Crypto on Auto-Pilot</div>
+    </header>
 
-    <div class="features">
-      <p><strong>Set it. Forget it. Get on with your day.</strong></p>
-      <p>Auto-sell at your target gain. Auto-sell at your stop-loss. You set the limits, we do the rest.</p>
-      <p>Crypto for the rest of us — no hype, no charts, no complexity.</p>
-      <p>✓ Try before you buy — simulate trades with fake money</p>
-      <p>✓ Big upside. Low fees. Minimized risk — all on autopilot</p>
-      <p>✓ "Invest in crypto — even if you don’t know what a blockchain is."</p>
-      <p>✓ "Trade bitcoin like you'd check your bank balance."</p>
-      <p>✓ "No jargon. No trading. Just smart investing."</p>
-      <p>✓ "Crypto without the crypto headache."</p>
-      <p>✓ "Unlike the banks, we don’t charge fees — and we protect your downside."</p>
-      <p><strong>Options:</strong> "Protect My Investment" or "Protect My Profits"</p>
-    </div>
+    <section class="features">
+      <div class="feature-icon">
+        <img src="voegko.png" alt="Smart Gains"/>
+        <span>Smart Gains</span>
+      </div>
+      <div class="feature-icon">
+        <img src="776sy7.png" alt="Managed Risk"/>
+        <span>Managed Risk</span>
+      </div>
+    </section>
 
-    <div class="footer">
-      &copy; 2025 BitPilot. All rights reserved.
+    <section class="ticks">
+      <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>Crypto for the rest of us — no hype, no charts, no complexity.</span></div>
+      <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>Try before you buy – simulate trades with fake money.</span></div>
+      <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>Auto-sells at your target gain. Auto-sells at your stop loss.</span></div>
+      <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>You set the limits. We do the rest.</span></div>
+      <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>Invest in crypto even if you don’t know what a blockchain is.</span></div>
+      <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>No charts. No jargon. Just smart investing. We protect your investment.</span></div>
+    </section>
+
+    <div class="hero-image">
+      <img src="pphfd.png" alt="Happy Bitcoin User"/>
     </div>
   </div>
 </body>
