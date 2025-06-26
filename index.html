@@ -63,27 +63,30 @@
       to { opacity: 1; }
     }
 
-    /* Telegram top-right (clickable) */
-    .telegram-wrapper {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      text-align: center;
-      opacity: 0;
-      animation: dropDown 1s ease-out forwards;
-      animation-delay: 2s;
-      text-decoration: none;
-    }
+/* Telegram top-right (clickable) */
+.telegram-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: center;
+  opacity: 0;
+  animation: dropDown 1s ease-out forwards;
+  animation-delay: 2s;
+  text-decoration: none;
+  z-index: 10; /* Ensures it appears above other elements */
+}
 
-    .telegram-wrapper img {
-      width: 70px;
-    }
+.telegram-wrapper img {
+  width: 70px;
+  display: block;
+  margin: 0 auto;
+}
 
-    .telegram-wrapper p {
-      margin-top: 5px;
-      font-size: 0.85rem;
-      color: #ccc;
-    }
+.telegram-wrapper p {
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: #ccc;
+}
 
     @keyframes dropDown {
       from { transform: translateY(-50px); opacity: 0; }
@@ -217,12 +220,10 @@
   <!-- Logo and Telegram (animate into header) -->
   <img src="IMG_2583.png" alt="BitPilot Logo" class="logo"/>
 
-  <a href="https://t.me/bitpilotuk" target="_blank" class="telegram-wrapper">
-<a href="https://t.me/bitpilotuk" target="_blank" style="position: absolute; top: 20px; right: 20px; display: inline-block; width: 180px;">
-  <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram" class="telegram" style="width: 100%;"/>
+<a href="https://t.me/bitpilotuk" target="_blank" class="telegram-wrapper">
+  <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram">
+  <p>Join our Telegram</p>
 </a>
-    <p>Contact us</p>
-  </a>
 
   <div class="container">
     <!-- Heading -->
