@@ -17,20 +17,23 @@
       max-width: 1200px;
       margin: auto;
       padding: 2rem;
+      position: relative;
     }
 
     header {
       text-align: center;
-      padding-top: 3rem;
+      position: relative;
+      padding-top: 2rem;
     }
 
     .logo {
-      width: 180px;
+      width: 220px;
+      max-width: 80%;
       animation: swipeRight 1.2s ease-out forwards;
     }
 
     .telegram {
-      width: 180px;
+      width: 90px;
       position: absolute;
       top: 20px;
       right: 20px;
@@ -48,13 +51,13 @@
     }
 
     .tagline {
-      font-size: 2.2rem;
+      font-size: 3rem;
       font-weight: bold;
-      margin-top: 1rem;
+      margin-top: 1.2rem;
     }
 
     .subtitle {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       color: #ccc;
       margin-bottom: 3rem;
     }
@@ -116,9 +119,22 @@
     }
 
     @media (max-width: 768px) {
-      .features {
-        flex-direction: column;
-        align-items: center;
+      .telegram {
+        width: 70px;
+        top: 15px;
+        right: 15px;
+      }
+
+      .tagline {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+      }
+
+      .tick {
+        font-size: 1rem;
       }
     }
   </style>
@@ -126,8 +142,8 @@
 <body>
   <div class="container">
     <header>
-      <img src="IMG_2583.JPG" alt="BitPilot Logo" class="logo"/>
       <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram" class="telegram"/>
+      <img src="IMG_2583.JPG" alt="BitPilot Logo" class="logo"/>
       <h1 class="tagline">BitPilot</h1>
       <div class="subtitle">Crypto on Auto-Pilot</div>
     </header>
