@@ -13,32 +13,57 @@
       overflow: hidden;
     }
 
-.full-logo-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #14243B; /* your updated dark blue */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+    /* Fullscreen landing logo container */
+    .full-logo-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #14243B;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
 
-.full-logo-screen img {
-  width: 60vw;                  /* responsive width (60% of screen width) */
-  max-width: 400px;             /* prevent over-scaling on large monitors */
-  height: auto;
-  border-radius: 20px;          /* keeps your rounded-square style */
-  object-fit: contain;          /* avoids stretching or distortion */
-  box-shadow: 0 0 20px rgba(0,0,0,0.5); /* soft border shadow */
-}
+    /* Animated logo that transitions to top-left */
+    .logo {
+      width: 220px;
+      height: auto;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: logoShrink 2s ease forwards;
+      animation-delay: 1.5s;
+      z-index: 10000;
+    }
 
+    /* Shrink + move to top-left animation */
+    @keyframes logoShrink {
+      to {
+        width: 140px;
+        top: 20px;
+        left: 20px;
+        transform: none;
+      }
+    }
 
+    /* Hide the splash background */
     .hide-fullscreen {
-      transform: scale(0.2) translate(-200%, -200%);
-      opacity: 0;
+      animation: fadeOut 0.5s ease forwards;
+      animation-delay: 2s;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
 
     .container {
@@ -47,67 +72,37 @@
       padding: 2rem;
       opacity: 0;
       animation: fadeInBody 2s ease forwards;
-      animation-delay: 3.5s;
+      animation-delay: 3s;
     }
 
     @keyframes fadeInBody {
       to { opacity: 1; }
     }
 
-    /* Logo top-left */
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 140px;
-  height: auto;
-  border-radius: 20px;          /* Rounded square edges */
-  object-fit: cover;            /* Clean cropping inside container */
-  box-shadow: 0 0 10px rgba(0,0,0,0.4); /* Optional: adds subtle edge definition */
-  opacity: 0;
-  animation: logoShrink 2s ease forwards;
-  animation-delay: 1.9s;
-}
-
-    .full-logo-screen img {
-  width: 220px;
-  height: auto;
-  border-radius: 20px;            /* Rounded square edges */
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Adds polish */
-  display: block;
-  margin: 100px auto;             /* Center it vertically */
-}
-
-
-    @keyframes logoShrink {
-      to { opacity: 1; }
+    /* Telegram top-right (clickable) */
+    .telegram-wrapper {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      text-align: center;
+      opacity: 0;
+      animation: dropDown 1s ease-out forwards;
+      animation-delay: 2.2s;
+      text-decoration: none;
+      z-index: 10;
     }
 
-/* Telegram top-right (clickable) */
-.telegram-wrapper {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  text-align: center;
-  opacity: 0;
-  animation: dropDown 1s ease-out forwards;
-  animation-delay: 2s;
-  text-decoration: none;
-  z-index: 10; /* Ensures it appears above other elements */
-}
+    .telegram-wrapper img {
+      width: 70px;
+      display: block;
+      margin: 0 auto;
+    }
 
-.telegram-wrapper img {
-  width: 70px;
-  display: block;
-  margin: 0 auto;
-}
-
-.telegram-wrapper p {
-  margin-top: 5px;
-  font-size: 0.85rem;
-  color: #ccc;
-}
+    .telegram-wrapper p {
+      margin-top: 5px;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
 
     @keyframes dropDown {
       from { transform: translateY(-50px); opacity: 0; }
@@ -134,13 +129,13 @@
       color: #E8B36D;
     }
 
-.subtitle {
-  font-size: 1.2rem;
-  color: #fff;
-  font-weight: bold;
-  margin-top: -1rem; /* pulls it closer to BitPilot */
-  margin-bottom: 2rem; /* slightly tighter spacing below */
-}
+    .subtitle {
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: bold;
+      margin-top: -1rem;
+      margin-bottom: 2rem;
+    }
 
     .features {
       display: flex;
@@ -234,18 +229,17 @@
 </head>
 <body>
 
-  <!-- Fullscreen landing logo -->
-  <div class="full-logo-screen" id="splash">
-    <img src="111.png" alt="BitPilot Full Logo" />
-  </div>
+  <!-- Fullscreen splash background -->
+  <div class="full-logo-screen" id="splash"></div>
 
-  <!-- Logo and Telegram (animate into header) -->
+  <!-- Animated logo that shrinks and moves -->
   <img src="111.png" alt="BitPilot Logo" class="logo"/>
 
-<a href="https://t.me/bitpilotuk" target="_blank" class="telegram-wrapper">
-  <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram">
-  <p>Join our Telegram</p>
-</a>
+  <!-- Telegram icon -->
+  <a href="https://t.me/bitpilotuk" target="_blank" class="telegram-wrapper">
+    <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram">
+    <p>Join our Telegram</p>
+  </a>
 
   <div class="container">
     <!-- Heading -->
@@ -276,8 +270,8 @@
       <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>You set the limits. We do the rest.</span></div>
       <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>Invest in crypto even if you don’t know what a blockchain is.</span></div>
       <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>No charts. No jargon. Just smart investing.</span></div>
-   <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>We protect your investment.</span></div>
-     </section>
+      <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>We protect your investment.</span></div>
+    </section>
 
     <!-- Success image -->
     <div class="hero-image">
@@ -285,13 +279,12 @@
     </div>
   </div>
 
-  <!-- Script to hide full splash screen after load -->
+  <!-- Script to fade out splash screen -->
   <script>
     setTimeout(() => {
-      const splash = document.getElementById("splash");
-      splash.classList.add("hide-fullscreen");
+      document.getElementById("splash").classList.add("hide-fullscreen");
       document.body.style.overflowY = 'auto';
-    }, 1500);
+    }, 2000);
   </script>
 </body>
 </html>
