@@ -54,16 +54,30 @@
     }
 
     /* Logo top-left */
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 140px;
-      border-radius: 20px;
-      opacity: 0;
-      animation: logoShrink 2s ease forwards;
-      animation-delay: 1.9s;
-    }
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 140px;
+  height: auto;
+  border-radius: 20px;          /* Rounded square edges */
+  object-fit: cover;            /* Clean cropping inside container */
+  box-shadow: 0 0 10px rgba(0,0,0,0.4); /* Optional: adds subtle edge definition */
+  opacity: 0;
+  animation: logoShrink 2s ease forwards;
+  animation-delay: 1.9s;
+}
+
+    .full-logo-screen img {
+  width: 220px;
+  height: auto;
+  border-radius: 20px;            /* Rounded square edges */
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Adds polish */
+  display: block;
+  margin: 100px auto;             /* Center it vertically */
+}
+
 
     @keyframes logoShrink {
       to { opacity: 1; }
