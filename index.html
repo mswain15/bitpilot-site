@@ -63,7 +63,7 @@
       to { opacity: 1; }
     }
 
-    /* Telegram top-right */
+    /* Telegram top-right (clickable) */
     .telegram-wrapper {
       position: absolute;
       top: 20px;
@@ -72,6 +72,7 @@
       opacity: 0;
       animation: dropDown 1s ease-out forwards;
       animation-delay: 2s;
+      text-decoration: none;
     }
 
     .telegram-wrapper img {
@@ -98,42 +99,41 @@
     .tagline {
       font-size: 3.2rem;
       font-weight: bold;
+      margin-top: 0.5rem;
     }
 
     .tagline .bit {
       color: #ffffff;
     }
 
-.features {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
+    .tagline .pilot {
+      color: #E8B36D;
+    }
 
-.feature-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  flex: 0 0 auto;
-  min-width: 140px;
-}
+    .subtitle {
+      font-size: 1.4rem;
+      color: #ccc;
+      margin-top: 0.5rem;
+      margin-bottom: 3rem;
+    }
 
-.feature-icon img {
-  width: 80px;
-  margin-bottom: 0.8rem;
-}
+    .features {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
 
-.feature-icon span {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #ffffff;
-  display: block;
-  margin-top: 0.5rem;
-}
+    .feature-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 0 0 auto;
+      min-width: 140px;
+    }
 
     .feature-icon img {
       width: 80px;
@@ -144,6 +144,8 @@
       font-size: 1.1rem;
       font-weight: 600;
       color: #ffffff;
+      display: block;
+      margin-top: 0.5rem;
     }
 
     .ticks {
@@ -215,10 +217,10 @@
   <!-- Logo and Telegram (animate into header) -->
   <img src="IMG_2583.JPG" alt="BitPilot Logo" class="logo"/>
 
-  <div class="telegram-wrapper">
+  <a href="https://t.me/bitpilotuk" target="_blank" class="telegram-wrapper">
     <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram"/>
     <p>Contact us</p>
-  </div>
+  </a>
 
   <div class="container">
     <!-- Heading -->
