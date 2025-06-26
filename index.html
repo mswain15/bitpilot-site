@@ -8,32 +8,33 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #0A0B1D;
+      background: #14243B;
       color: #fff;
       overflow: hidden;
     }
 
-    .full-logo-screen {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: #0A0B1D;
-      display: flex;
-      overflow: hidden;
-      object-fit: cover; 
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      transition: all 2s ease-in-out;
-    }
+.full-logo-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #14243B; /* your updated dark blue */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
-    .full-logo-screen img {
-      width: 60%;
-      max-width: 400px;
-      border-radius: 20px;
-      overflow: hidden;
-      object-fit: cover; 
-      transition: transform 1.5s ease-in-out;
-    }
+.full-logo-screen img {
+  width: 60vw;                  /* responsive width (60% of screen width) */
+  max-width: 400px;             /* prevent over-scaling on large monitors */
+  height: auto;
+  border-radius: 20px;          /* keeps your rounded-square style */
+  object-fit: contain;          /* avoids stretching or distortion */
+  box-shadow: 0 0 20px rgba(0,0,0,0.5); /* soft border shadow */
+}
+
 
     .hide-fullscreen {
       transform: scale(0.2) translate(-200%, -200%);
