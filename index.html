@@ -10,14 +10,42 @@
       font-family: 'Segoe UI', sans-serif;
       background: #0e0e0e;
       color: #fff;
-      overflow-x: hidden;
+      overflow: hidden;
+    }
+
+    .full-logo-screen {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #0e0e0e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: all 1s ease-in-out;
+    }
+
+    .full-logo-screen img {
+      width: 60%;
+      max-width: 400px;
+      transition: transform 1s ease-in-out;
+    }
+
+    .hide-fullscreen {
+      transform: scale(0.2) translate(-200%, -200%);
+      opacity: 0;
     }
 
     .container {
       max-width: 1200px;
       margin: auto;
       padding: 2rem;
-      position: relative;
+      opacity: 0;
+      animation: fadeInBody 1s ease forwards;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes fadeInBody {
+      to { opacity: 1; }
     }
 
     /* Logo top-left */
@@ -25,8 +53,14 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      width: 160px;
-      animation: swipeRight 1s ease-out forwards;
+      width: 140px;
+      opacity: 0;
+      animation: logoShrink 1s ease forwards;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes logoShrink {
+      to { opacity: 1; }
     }
 
     /* Telegram top-right */
@@ -35,10 +69,9 @@
       top: 20px;
       right: 20px;
       text-align: center;
-      animation: dropDown 1s ease-out forwards;
-      animation-delay: 0.5s;
       opacity: 0;
-      animation-fill-mode: forwards;
+      animation: dropDown 1s ease-out forwards;
+      animation-delay: 2s;
     }
 
     .telegram-wrapper img {
@@ -49,11 +82,6 @@
       margin-top: 5px;
       font-size: 0.85rem;
       color: #ccc;
-    }
-
-    @keyframes swipeRight {
-      from { transform: translateX(-200px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
     }
 
     @keyframes dropDown {
@@ -90,16 +118,16 @@
     .features {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 3rem;
       margin-bottom: 3rem;
       flex-wrap: nowrap;
     }
 
     .feature-icon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
+      flex: 1;
+      min-width: 120px;
     }
 
     .feature-icon img {
@@ -147,15 +175,15 @@
     }
 
     @media (max-width: 768px) {
-      .logo {
-        width: 120px;
-        top: 15px;
-        left: 15px;
+      .features {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 2rem;
       }
 
-      .telegram-wrapper {
-        top: 15px;
-        right: 15px;
+      .feature-icon {
+        flex: 0 0 45%;
       }
 
       .tagline {
@@ -166,11 +194,6 @@
         font-size: 1.2rem;
       }
 
-      .features {
-        flex-direction: column;
-        gap: 2rem;
-      }
-
       .tick {
         font-size: 1rem;
       }
@@ -178,17 +201,22 @@
   </style>
 </head>
 <body>
+
+  <!-- Fullscreen landing logo -->
+  <div class="full-logo-screen" id="splash">
+    <img src="IMG_2583.JPG" alt="BitPilot Full Logo" />
+  </div>
+
+  <!-- Logo and Telegram (animate into header) -->
+  <img src="IMG_2583.JPG" alt="BitPilot Logo" class="logo"/>
+
+  <div class="telegram-wrapper">
+    <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram"/>
+    <p>Contact us</p>
+  </div>
+
   <div class="container">
-    <!-- Logo (top-left) -->
-    <img src="IMG_2583.JPG" alt="BitPilot Logo" class="logo"/>
-
-    <!-- Telegram icon (top-right) -->
-    <div class="telegram-wrapper">
-      <img src="tele _me-bitpilotuk_edited.jpg" alt="Join Telegram"/>
-      <p>Contact us</p>
-    </div>
-
-    <!-- Header text -->
+    <!-- Heading -->
     <header>
       <h1 class="tagline">
         <span class="bit">Bit</span><span class="pilot">Pilot</span>
@@ -196,7 +224,7 @@
       <div class="subtitle">Crypto on Auto-Pilot</div>
     </header>
 
-    <!-- Feature icons -->
+    <!-- Feature Icons -->
     <section class="features">
       <div class="feature-icon">
         <img src="voegko.png" alt="Smart Gains"/>
@@ -208,7 +236,7 @@
       </div>
     </section>
 
-    <!-- Tick section -->
+    <!-- Tick items -->
     <section class="ticks">
       <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>Crypto for the rest of us — no hype, no charts, no complexity.</span></div>
       <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>Try before you buy – simulate trades with fake money.</span></div>
@@ -218,10 +246,19 @@
       <div class="tick"><img src="https://img.icons8.com/color/48/000000/checkmark--v1.png"/><span>No charts. No jargon. Just smart investing. We protect your investment.</span></div>
     </section>
 
-    <!-- Image of happy user -->
+    <!-- Success image -->
     <div class="hero-image">
       <img src="pphfd.png" alt="Happy Bitcoin User"/>
     </div>
   </div>
+
+  <!-- Script to hide full splash screen after load -->
+  <script>
+    setTimeout(() => {
+      const splash = document.getElementById("splash");
+      splash.classList.add("hide-fullscreen");
+      document.body.style.overflowY = 'auto';
+    }, 1500);
+  </script>
 </body>
 </html>
